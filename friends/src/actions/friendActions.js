@@ -27,7 +27,7 @@ export const getFriends = () => dispatch => {
     dispatch({ type: FETCH_DATA_START });
     console.log(`Getting friends!`)
 
-    axiosWithAuth
+    axiosWithAuth()
         .get(`/friends`)
         .then(res => {
             console.log(res.data)
@@ -42,11 +42,12 @@ export const handleSubmit = data => dispatch => {
     dispatch({ type: POST_DATA_START})
     const newfriend = {...data, id: Date.now()}
 
-    axiosWithAuth
+    axiosWithAuth()
         .post(`/friends`, newfriend)
         .then(res => {
             console.log(res)
             dispatch({ type: POST_DATA_SUCCESS, payload: res.data })
+            dispatch(getFriends())
         })
         .catch(err => {
             dispatch({ type: POST_DATA_FAILURE, payload: err })

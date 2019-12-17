@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { getFriends } from '../actions/friendActions'
 import Loader from 'react-loader-spinner'
 import Friend from './Friend'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import FriendForm from './FriendForm';
 
 const FriendList = props => {
 
@@ -12,7 +14,7 @@ const FriendList = props => {
       }, []);
 
     return (
-        <div className='flex'>
+        <div className='list'>
             {props.isFetching && (
                 <>
                 <h1>Fetching friends...</h1>
@@ -30,7 +32,8 @@ const FriendList = props => {
                     <Friend key={friend.id} friend={friend} />
                 ))
             }
-            <Link to='/add-friend'>Add a Friend</Link>
+            {/* <Link to='/add-friend'>Add a Friend</Link> */}
+            <FriendForm />
         </div>
   );
 };
@@ -45,5 +48,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { getFriends }
 )(FriendList);

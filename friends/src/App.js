@@ -12,14 +12,11 @@ const App = () => {
     <Router>
       <div className="App">
         <div className='nav'>
-          <ul>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/protected">Friends</Link>
-            </li>
-          </ul>
+
+            <Link to="/login">Login</Link>
+
+            <Link to="/protected">Friends</Link>
+
         </div>
         <Switch>
           <PrivateRoute exact path="/protected" component={FriendsList} />

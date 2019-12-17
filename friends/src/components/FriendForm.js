@@ -1,40 +1,41 @@
 import React from 'react'
 import Loader from 'react-loader-spinner'
+import { connect } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { handleName, handleAge, handleEmail, handleSubmit, getFriends } from '../actions/friendActions';
 
-const FriendForm = () => {
+const FriendForm = props => {
 
     return (
-        <form onSubmit={e => {
-                e.preventDefault();
-                handleSubmit(inputValues);
-            }}>
+        <form>
             <label>
                 Name:
                 <input
                     type='text'
-                    value={inputValues.name}
-                    onChange={handleName}
+                    value={props.inputValues.name}
+                    onChange={props.handleName}
                 />
             </label>
             <label>
                 Age:
                 <input
                     type='number'
-                    value={inputValues.age}
-                    onChange={handleAge}
+                    value={props.inputValues.age}
+                    onChange={props.handleAge}
                 />
             </label>
             <label>
                 Email:
                 <input
                     type='email'
-                    value={inputValues.height}
-                    onChange={handleHeight}
+                    value={props.inputValues.email}
+                    onChange={props.handleEmail}
                 />
             </label>
-            <button type='submit'>Add Friend</button>
+            <button onClick={e => {
+                e.preventDefault();
+                props.handleSubmit(props.inputValues);
+            }}>Add Friend</button>
             {props.isPosting && 
             <>
                 <p>Adding Friend...</p>
@@ -60,5 +61,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { handleName, handleAge, handleHeight, handleSubmit, getFriends }
+    { handleName, handleAge, handleEmail, handleSubmit, getFriends }
 )(FriendForm)

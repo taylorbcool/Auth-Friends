@@ -63,7 +63,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 inputValues: {
                     ...state.inputValues,
-                    height: action.payload
+                    email: action.payload
                 }
             };
         case POST_DATA_START:
