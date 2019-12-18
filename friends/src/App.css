@@ -1,0 +1,67 @@
+body{
+  font-size: 62.5%;
+  background-color: whitesmoke;
+}
+
+.App {
+  text-align: center;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+h4{
+  font-size: 1.6rem;
+}
+
+p{
+  font-size: 1.4rem;
+}
+
+.nav{
+  display: flex;
+  justify-content: flex-end;
+  width: 85%;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+a{
+  padding: 1rem;
+  margin-left: 1rem;
+  text-decoration: none;
+  background-color: paleturquoise;
+  color: black;
+  border-radius: 15px;
+  font-size: 1.6rem;
+}
+
+.list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.friend{
+  width: 40%;
+  background-color: palegoldenrod;
+  border-radius: 15px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+button{
+  padding: 1rem;
+  margin-left: 1rem;
+  text-decoration: none;
+  background-color: paleturquoise;
+  color: black;
+  border-radius: 15px;
+  font-size: 1.6rem;
+}
+
+form{
+  font-size: 1.4rem;
+}
